@@ -13,11 +13,21 @@ public class PlayerBehaviour : MonoBehaviour{
     private GameObject screen;
     private Animator cat;
     private bool isShowing=false;
+    //nuevo
+    private float jumpForce;
+    private Rigidbody physiscsBody;
+    bool floorDetected = true;
+    ///
+ 
 
     void Start(){
         cat=GameObject.FindGameObjectWithTag("Cat").GetComponent<Animator>();
         Cursor.lockState=CursorLockMode.Locked;
         Cursor.visible=false;
+        //nuevo
+        jumpForce = 2f;
+        physiscsBody = GetComponent<Rigidbody>();
+        ///
     }
 
     void Update(){
@@ -34,6 +44,7 @@ public class PlayerBehaviour : MonoBehaviour{
                 transform.Translate(movement*speed*Time.deltaTime);
                 transform.Rotate(new Vector3(0,rotateY,0)*rotationSpeed*Time.deltaTime);
                 AnimarGato();
+                SaltoGato();
                 break;
             }
             case false:{
@@ -42,6 +53,7 @@ public class PlayerBehaviour : MonoBehaviour{
                 break;
             }
         }
+       
     }
 
     public void AnimarGato(){
@@ -57,6 +69,28 @@ public class PlayerBehaviour : MonoBehaviour{
             Instantiate(screen);
             isShowing=true;
         }
+    }
+
+    public void SaltoGato()
+    {
+    
+        Vector3 floor = transform.TransformDirection(Vector3.down);
+
+        if (Physics.Raycast(transform.position, floor, 1.08f))
+        {
+            floorDetected = true;
+        }
+        else
+        {
+            floorDetected = false;
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.Space) && floorDetected == true)//si se preciona la barra y el personaje esta en el suelo podra realizar el salto
+        {
+            physiscsBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
+      
     }
 
     public int HasSalmon {get => hasSalmon; set => hasSalmon=value;}
