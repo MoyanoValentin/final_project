@@ -7,7 +7,7 @@ public class LaserGenerator : MonoBehaviour{
     private GameObject laser;
 
     void Start(){
-        InvokeRepeating("GenerarLaser",4,8);
+        InvokeRepeating("GenerarLaser",4,4);
     }
 
     public void GenerarLaser(){
