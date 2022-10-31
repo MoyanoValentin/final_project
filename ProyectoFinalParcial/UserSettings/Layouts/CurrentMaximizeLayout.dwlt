@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 14428
+  controlID: 16868
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -86,7 +86,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 0
-  controlID: 14429
+  controlID: 16869
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 14450
+  controlID: 16795
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -186,8 +186,8 @@ MonoBehaviour:
     y: 0
     width: 279
     height: 356
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -224,9 +224,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: ec5b0000
-      m_LastClickedID: 0
-      m_ExpandedIDs: acf1feffb4f2feff7a01ffffc801ffff7429ffff4a51ffffca61ffff5c62ffffe262fffff463ffffda71ffff2e72fffffc7affff927dffff6c86ffff6ca1ffff34fbfffff295000032960000c0960000ee9600008a9b0000
+      m_SelectedIDs: e810feff
+      m_LastClickedID: -126744
+      m_ExpandedIDs: 167afeff0a91feffd491feffacf1feffb4f2feff7a01ffffc801ffff7429ffff4a51ffffca61ffff5c62ffffe262fffff463ffffda71ffff2e72fffffc7affff927dffff6c86ffff6ca1ffff34fbfffff295000032960000c0960000ee9600008a9b0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -318,22 +318,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Lunar Landscape 3D/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Lunar Landscape 3D/Scenes
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Projects\Unity\ProyectoFinal\ProyectoFinalParcial
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: b05b0000
-    m_LastClickedID: 23472
-    m_ExpandedIDs: 00000000a65b0000
+    scrollPos: {x: 0, y: 2}
+    m_SelectedIDs: 00fb0000
+    m_LastClickedID: 64256
+    m_ExpandedIDs: 00000000a65b000002fb0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -386,9 +386,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: ec5b0000
-    m_LastClickedInstanceID: 23532
-    m_HadKeyboardFocusLastEvent: 1
+    m_SelectedInstanceIDs: e810feff
+    m_LastClickedInstanceID: -126744
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -469,7 +469,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 14430
+  controlID: 16870
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -489,8 +489,8 @@ MonoBehaviour:
     y: 0
     width: 764
     height: 313
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
@@ -722,9 +722,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 354.59662, y: -56.49731, z: 202.72238}
+    m_Target: {x: -344.13983, y: -84.47033, z: -95.383575}
     speed: 2
-    m_Value: {x: 354.59662, y: -56.49731, z: 202.72238}
+    m_Value: {x: -344.13983, y: -84.47033, z: -95.383575}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -771,13 +771,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.06972352, y: -0.5607099, z: 0.04723383, w: -0.8238178}
+    m_Target: {x: 0.071528874, y: -0.7853577, z: 0.09265238, w: 0.608019}
     speed: 2
-    m_Value: {x: -0.06971781, y: -0.560664, z: 0.047229964, w: -0.8237503}
+    m_Value: {x: 0.07152263, y: -0.78528917, z: 0.0926443, w: 0.60796595}
   m_Size:
-    m_Target: 172.44228
+    m_Target: 196.7853
     speed: 2
-    m_Value: 172.44228
+    m_Value: 196.7853
   m_Ortho:
     m_Target: 0
     speed: 2
