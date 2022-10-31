@@ -5,14 +5,9 @@ using UnityEngine;
 public class PlayerBehaviour : MonoBehaviour{
     private float speed=10;
     private float rotationSpeed=200;
-    [SerializeField]
-    public int hasSalmon=0;
-    [SerializeField]
-    public bool isLive=true;
-    [SerializeField]
-    private GameObject screen;
+    [SerializeField]public int hasSalmon=0;
+    [SerializeField]public bool isLive=true;
     private Animator cat;
-    private bool isShowing=false;
 
     void Start(){
         cat=GameObject.FindGameObjectWithTag("Cat").GetComponent<Animator>();
@@ -37,7 +32,7 @@ public class PlayerBehaviour : MonoBehaviour{
                 break;
             }
             case false:{
-                Invoke("MostrarPantallafinal",0.1f);
+                Destroy(gameObject);
                 cat.SetBool("Walk",false);
                 break;
             }
@@ -49,13 +44,6 @@ public class PlayerBehaviour : MonoBehaviour{
             cat.SetBool("Walk",true);
         }else{
             cat.SetBool("Walk",false);
-        }
-    }
-
-    public void MostrarPantallafinal(){
-        if(!isShowing){
-            Instantiate(screen);
-            isShowing=true;
         }
     }
 
