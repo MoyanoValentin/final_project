@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NPC2Behaviour : MonoBehaviour{
     public bool isInNpc=false;
@@ -15,7 +16,7 @@ public class NPC2Behaviour : MonoBehaviour{
     void OnTriggerEnter(Collider other){
         isInNpc=true;
         if(player.hasSalmon>=10){
-            player.isLive=false;
+            SceneManager.LoadScene(2);
         }
     }
 

@@ -5,29 +5,19 @@ using UnityEngine;
 public class PlayerBehaviour : MonoBehaviour{
     private float speed=10;
     private float rotationSpeed=200;
-    [SerializeField]
-    public int hasSalmon=0;
-    [SerializeField]
-    public bool isLive=true;
-    [SerializeField]
-    private GameObject screen;
+    [SerializeField]public int hasSalmon=0;
+    [SerializeField]public bool isLive=true;
     private Animator cat;
-    private bool isShowing=false;
-    //nuevo
     private float jumpForce;
     private Rigidbody physiscsBody;
     bool floorDetected = true;
-    ///
- 
 
     void Start(){
         cat=GameObject.FindGameObjectWithTag("Cat").GetComponent<Animator>();
         Cursor.lockState=CursorLockMode.Locked;
         Cursor.visible=false;
-        //nuevo
-        jumpForce = 2f;
+        jumpForce = 5f;
         physiscsBody = GetComponent<Rigidbody>();
-        ///
     }
 
     void Update(){
@@ -44,16 +34,15 @@ public class PlayerBehaviour : MonoBehaviour{
                 transform.Translate(movement*speed*Time.deltaTime);
                 transform.Rotate(new Vector3(0,rotateY,0)*rotationSpeed*Time.deltaTime);
                 AnimarGato();
-                SaltoGato();
+                    SaltarGato();
                 break;
             }
             case false:{
-                Invoke("MostrarPantallafinal",0.1f);
+                Destroy(gameObject);
                 cat.SetBool("Walk",false);
                 break;
             }
         }
-       
     }
 
     public void AnimarGato(){
@@ -63,17 +52,9 @@ public class PlayerBehaviour : MonoBehaviour{
             cat.SetBool("Walk",false);
         }
     }
-
-    public void MostrarPantallafinal(){
-        if(!isShowing){
-            Instantiate(screen);
-            isShowing=true;
-        }
-    }
-
-    public void SaltoGato()
-    {
     
+    public void SaltarGato()
+    {
         Vector3 floor = transform.TransformDirection(Vector3.down);
 
         if (Physics.Raycast(transform.position, floor, 1.08f))
@@ -90,7 +71,6 @@ public class PlayerBehaviour : MonoBehaviour{
         {
             physiscsBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
-      
     }
 
     public int HasSalmon {get => hasSalmon; set => hasSalmon=value;}
