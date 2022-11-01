@@ -12,6 +12,7 @@ public class PlayerBehaviour : MonoBehaviour{
     private Rigidbody physiscsBody;
     bool floorDetected = true;
 
+
     void Start(){
         cat=GameObject.FindGameObjectWithTag("Cat").GetComponent<Animator>();
         Cursor.lockState=CursorLockMode.Locked;
