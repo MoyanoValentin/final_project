@@ -9,16 +9,6 @@ public class RobotFreeAnim : MonoBehaviour {
 	Animator anim;
 
 	// Use this for initialization
-
-	private void OnTriggerStay(Collider other)
-	{
-		if (other.gameObject.CompareTag("bala"))
-		{
-			Destroy(gameObject);
-		}
-
-	}
-
 	void Awake()
 	{
 		anim = gameObject.GetComponent<Animator>();

@@ -6,7 +6,7 @@ public class BallBehaviourScript : MonoBehaviour
 {
 
     [SerializeField]//para q se vea en el unity
-    private float speedZ = 4f;
+    private float speedZ = 20f;
 
     private void OnTriggerStay(Collider other)
     {
@@ -21,7 +21,7 @@ public class BallBehaviourScript : MonoBehaviour
     void Update()
     {
 
-        transform.Translate(0, 0, speedZ * Time.deltaTime);
+        transform.Translate(0, 0, speedZ *Time.deltaTime);
        // destroyBall();
     }
 

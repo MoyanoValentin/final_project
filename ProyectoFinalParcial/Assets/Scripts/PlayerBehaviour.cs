@@ -22,6 +22,7 @@ public class PlayerBehaviour : MonoBehaviour{
 
     void Update(){
         MoverGato();
+        SaltarGato();
     }
 
     public void MoverGato(){
@@ -34,7 +35,6 @@ public class PlayerBehaviour : MonoBehaviour{
                 transform.Translate(movement*speed*Time.deltaTime);
                 transform.Rotate(new Vector3(0,rotateY,0)*rotationSpeed*Time.deltaTime);
                 AnimarGato();
-                    SaltarGato();
                 break;
             }
             case false:{
@@ -45,14 +45,6 @@ public class PlayerBehaviour : MonoBehaviour{
         }
     }
 
-    public void AnimarGato(){
-        if(Input.GetAxis("Vertical")!=0 || Input.GetAxis("Horizontal")!=0){
-            cat.SetBool("Walk",true);
-        }else{
-            cat.SetBool("Walk",false);
-        }
-    }
-    
     public void SaltarGato()
     {
         Vector3 floor = transform.TransformDirection(Vector3.down);
@@ -70,6 +62,14 @@ public class PlayerBehaviour : MonoBehaviour{
         if (Input.GetKeyDown(KeyCode.Space) && floorDetected == true)//si se preciona la barra y el personaje esta en el suelo podra realizar el salto
         {
             physiscsBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
+    }
+
+    public void AnimarGato(){
+        if(Input.GetAxis("Vertical")!=0 || Input.GetAxis("Horizontal")!=0){
+            cat.SetBool("Walk",true);
+        }else{
+            cat.SetBool("Walk",false);
         }
     }
 
