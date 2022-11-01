@@ -14,22 +14,12 @@ public class BallBehaviourScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
     }
 
 
     void Update()
     {
-
-        transform.Translate(0, 0, speedZ *Time.deltaTime);
-       // destroyBall();
+        transform.Translate(0, 0, speedZ *Time.deltaTime);     
     }
-
-    public void destroyBall()
-    {
-        if (transform.position.z < -5 || transform.position.z > 6)
-        {
-            Destroy(transform.gameObject);
-        }
-    }
+  
 }
