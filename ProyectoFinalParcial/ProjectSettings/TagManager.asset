@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - NPC
+  - NPCSalmon
+  - Salmon
+  - CollectedSalmon
+  - Cat
+  - bala
+  - NPC2
+  - NPC2Salmon
+  - Enemy
   layers:
   - Default
   - TransparentFX
