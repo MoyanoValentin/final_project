@@ -8,7 +8,7 @@ public class SceneManagerBehaviour : MonoBehaviour
     //Metodo de cambio de Escena asignado a un boton 
     public void Restart()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
 }
