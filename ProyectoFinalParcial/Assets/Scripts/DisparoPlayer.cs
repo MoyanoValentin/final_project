@@ -6,8 +6,6 @@ public class DisparoPlayer : MonoBehaviour
 {
     [SerializeField]
     private GameObject playerBall;
-    [SerializeField]
-    private GameObject a;
     public float shotRate = 0.5f;
     private float shotRateTime = 0;
 

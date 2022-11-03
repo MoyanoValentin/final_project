@@ -17,7 +17,7 @@ public class PlayerBehaviour : MonoBehaviour{
         cat=GameObject.FindGameObjectWithTag("Cat").GetComponent<Animator>();
         Cursor.lockState=CursorLockMode.Locked;
         Cursor.visible=false;
-        jumpForce = 5f;
+        jumpForce = 7f;
         physiscsBody = GetComponent<Rigidbody>();
     }
 
@@ -46,22 +46,16 @@ public class PlayerBehaviour : MonoBehaviour{
         }
     }
 
-    public void SaltarGato()
-    {
+    public void SaltarGato(){
         Vector3 floor = transform.TransformDirection(Vector3.down);
-
-        if (Physics.Raycast(transform.position, floor, 1.08f))
-        {
+        if (Physics.Raycast(transform.position, floor, 1.08f)){
             floorDetected = true;
-        }
-        else
-        {
+        }else{
             floorDetected = false;
         }
 
-
-        if (Input.GetKeyDown(KeyCode.Space) && floorDetected == true)//si se preciona la barra y el personaje esta en el suelo podra realizar el salto
-        {
+        //si se presiona la barra y el personaje esta en el suelo podra realizar el salto
+        if (Input.GetKeyDown(KeyCode.Space) && floorDetected == true){
             physiscsBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
