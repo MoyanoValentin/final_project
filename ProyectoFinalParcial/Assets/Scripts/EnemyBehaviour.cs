@@ -5,9 +5,15 @@ using UnityEngine.AI;
 
 public class EnemyBehaviour : MonoBehaviour{
     private GameObject player;
+    [SerializeField]private GameObject explosion;
     private NavMeshAgent agente;
     private Transform objetivo;
     private Animator animador;
+
+   
+    public AudioSource controlSonido;
+    
+    public AudioClip sonidoExplosion;
 
     void Start(){
         player=GameObject.FindGameObjectWithTag("Player");
@@ -35,9 +41,11 @@ public class EnemyBehaviour : MonoBehaviour{
         transform.rotation=playerDirection;
     }
 
-    void OnTriggerStay(Collider other){
+    void OnTriggerEnter(Collider other){
         if(other.gameObject.CompareTag("bala")){
+            Instantiate(explosion,transform.position,transform.rotation);
             Destroy(gameObject);
+            AudioSource.PlayClipAtPoint(sonidoExplosion, gameObject.transform.position);
         }
         if(other.gameObject.CompareTag("Player")){
             Destroy(player);

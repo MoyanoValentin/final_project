@@ -8,8 +8,12 @@ public class GeneradorEnemigos : MonoBehaviour
     [SerializeField]
     private GameObject enemigo;
     [SerializeField]
+    private GameObject explosion;
+    [SerializeField]
     private int tipoGenerador;
     private int cont=0;
+
+     public AudioClip sonidoExplosion;
 
     void Start(){
         switch(tipoGenerador){
@@ -41,7 +45,9 @@ public class GeneradorEnemigos : MonoBehaviour
 }
     void OnTriggerStay(Collider other){
         if(other.gameObject.CompareTag("bala")){
+            Instantiate(explosion,transform.position,transform.rotation);
             Destroy(gameObject);
+            AudioSource.PlayClipAtPoint(sonidoExplosion, gameObject.transform.position);
         }
       }
 }
