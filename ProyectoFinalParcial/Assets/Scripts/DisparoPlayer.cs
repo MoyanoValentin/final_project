@@ -9,6 +9,9 @@ public class DisparoPlayer : MonoBehaviour
     public float shotRate = 0.5f;
     private float shotRateTime = 0;
 
+    public AudioSource controlSonido;
+    public AudioClip sonidoDisparo;
+
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))
@@ -20,6 +23,8 @@ public class DisparoPlayer : MonoBehaviour
                   newPlayerBall= Instantiate(playerBall,transform.position, transform.rotation);
                   shotRateTime = Time.time + shotRate;
                    Destroy(newPlayerBall, 2);
+
+                controlSonido.PlayOneShot(sonidoDisparo);
             }
         }
     }

@@ -10,6 +10,11 @@ public class EnemyBehaviour : MonoBehaviour{
     private Transform objetivo;
     private Animator animador;
 
+   
+    public AudioSource controlSonido;
+    
+    public AudioClip sonidoExplosion;
+
     void Start(){
         player=GameObject.FindGameObjectWithTag("Player");
         objetivo=player.GetComponent<Transform>();
@@ -40,6 +45,7 @@ public class EnemyBehaviour : MonoBehaviour{
         if(other.gameObject.CompareTag("bala")){
             Instantiate(explosion,transform.position,transform.rotation);
             Destroy(gameObject);
+            AudioSource.PlayClipAtPoint(sonidoExplosion, gameObject.transform.position);
         }
         if(other.gameObject.CompareTag("Player")){
             Destroy(player);
