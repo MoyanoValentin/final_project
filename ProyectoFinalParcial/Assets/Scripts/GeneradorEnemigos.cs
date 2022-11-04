@@ -18,7 +18,7 @@ public class GeneradorEnemigos : MonoBehaviour
             break;
         }
         case 2:{
-            InvokeRepeating("GenerarEnemigo",0,0);
+            InvokeRepeating("GenerarEnemigo",0,1);
             break;
         }
       }    
