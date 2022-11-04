@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyBehaviour : MonoBehaviour{
     private GameObject player;
+    [SerializeField]private GameObject explosion;
     private NavMeshAgent agente;
     private Transform objetivo;
     private Animator animador;
@@ -35,8 +36,9 @@ public class EnemyBehaviour : MonoBehaviour{
         transform.rotation=playerDirection;
     }
 
-    void OnTriggerStay(Collider other){
+    void OnTriggerEnter(Collider other){
         if(other.gameObject.CompareTag("bala")){
+            Instantiate(explosion,transform.position,transform.rotation);
             Destroy(gameObject);
         }
         if(other.gameObject.CompareTag("Player")){
