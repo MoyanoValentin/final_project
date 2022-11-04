@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class GeneradorEnemigos : MonoBehaviour
-{
+public class GeneradorEnemigos : MonoBehaviour{
     [SerializeField]
     private GameObject enemigo;
     [SerializeField]
