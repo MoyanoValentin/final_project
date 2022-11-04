@@ -23,6 +23,7 @@ public class EnemyBehaviour : MonoBehaviour{
     }
 
     void Update(){
+        agente.destination=objetivo.position;
         MoverEnemigo();
     }
 
@@ -35,7 +36,6 @@ public class EnemyBehaviour : MonoBehaviour{
             animador.SetBool("Roll_Anim", false);
             animador.SetBool("Walk_Anim", true);
         }
-        agente.destination=objetivo.position;
         Vector3 direction=objetivo.position-transform.position;
         Quaternion playerDirection=Quaternion.LookRotation(new Vector3(direction.x,0,direction.z));
         transform.rotation=playerDirection;

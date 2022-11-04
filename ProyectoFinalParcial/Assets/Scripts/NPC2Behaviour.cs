@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class NPC2Behaviour : MonoBehaviour{
     public bool isInNpc=false;
+    [SerializeField]public int npcType;
     public PlayerBehaviour player;
     public SalmonBehaviour salmon;
 
@@ -16,7 +17,16 @@ public class NPC2Behaviour : MonoBehaviour{
     void OnTriggerEnter(Collider other){
         isInNpc=true;
         if(player.hasSalmon>=10){
-            SceneManager.LoadScene(2);
+            switch(npcType){
+                case 1:{
+                    SceneManager.LoadScene(2);
+                    break;
+                }
+                case 2:{
+                    SceneManager.LoadScene(3);
+                    break;
+                }
+            }
         }
     }
 
