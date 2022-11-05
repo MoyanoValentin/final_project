@@ -35,7 +35,9 @@ public class EnemyPatrol : MonoBehaviour
             Debug.Log(texto);
             yield return StartCoroutine("RotaEnemigo");
             if (i < 3) i++; else i = 0;
+
             nuevaPosicion = new Vector3(puntosControl[i].position.x, Enemigo.transform.position.y, puntosControl[i].position.z);
+
 
         }
 
@@ -44,6 +46,7 @@ public class EnemyPatrol : MonoBehaviour
     IEnumerator RotaEnemigo()
     {
         yield return new WaitForSecondsRealtime(0.25F);
+
         for(int i = 1; i <= 90; i++)
         {
             Enemigo.transform.Rotate(0, -1, 0);
