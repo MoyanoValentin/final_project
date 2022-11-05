@@ -6,10 +6,11 @@ public class DisparoPlayer : MonoBehaviour
 {
     [SerializeField]
     private GameObject playerBall;
-    [SerializeField]
-    private GameObject a;
     public float shotRate = 0.5f;
     private float shotRateTime = 0;
+
+    public AudioSource controlSonido;
+    public AudioClip sonidoDisparo;
 
     void Update()
     {
@@ -22,6 +23,8 @@ public class DisparoPlayer : MonoBehaviour
                   newPlayerBall= Instantiate(playerBall,transform.position, transform.rotation);
                   shotRateTime = Time.time + shotRate;
                    Destroy(newPlayerBall, 2);
+
+                controlSonido.PlayOneShot(sonidoDisparo);
             }
         }
     }

@@ -15,6 +15,8 @@ public class SceneMonitorBehaviour : MonoBehaviour{
         //Tambien comprueba si el objeto con el tag Player desaparecio y cambia de escena y imprime en consola un Perdiste.
 
         if (!GameObject.FindGameObjectWithTag("Player")){
+            Cursor.lockState=CursorLockMode.None;
+            Cursor.visible=true;
             print("Perdiste :c");
             SceneManager.LoadScene(4);
         }
