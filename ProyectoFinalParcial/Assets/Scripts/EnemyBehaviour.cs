@@ -42,7 +42,7 @@ public class EnemyBehaviour : MonoBehaviour{
     }
 
     void OnTriggerEnter(Collider other){
-        if(other.gameObject.CompareTag("bala")){
+        if(other.gameObject.CompareTag("bala") || other.gameObject.CompareTag("NPCShield")){
             Instantiate(explosion,transform.position,transform.rotation);
             Destroy(gameObject);
             AudioSource.PlayClipAtPoint(sonidoExplosion, gameObject.transform.position);
