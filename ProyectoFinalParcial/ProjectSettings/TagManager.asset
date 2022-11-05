@@ -13,6 +13,7 @@ TagManager:
   - NPC2
   - NPC2Salmon
   - Enemy
+  - NPCShield
   layers:
   - Default
   - TransparentFX

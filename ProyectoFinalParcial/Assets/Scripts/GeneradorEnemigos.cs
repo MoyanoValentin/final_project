@@ -43,7 +43,7 @@ public class GeneradorEnemigos : MonoBehaviour{
     }
 }
     void OnTriggerStay(Collider other){
-        if(other.gameObject.CompareTag("bala")){
+        if(other.gameObject.CompareTag("bala") || other.gameObject.CompareTag("NPCShield")){
             Instantiate(explosion,transform.position,transform.rotation);
             Destroy(gameObject);
             AudioSource.PlayClipAtPoint(sonidoExplosion, gameObject.transform.position);
