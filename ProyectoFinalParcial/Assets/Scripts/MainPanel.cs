@@ -6,15 +6,17 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MainPanel : MonoBehaviour{
+    //Distintas opciones 
     [Header("Options")]
-    public Slider volumeFX;
+    public Slider volumeFX;// Slider del volumenFx en el menu
     public Slider volumeMaster;
     public Toggle mute;
-    public AudioMixer mixer;
+    public AudioMixer mixer; //
     public AudioSource fxSource;
-    public AudioClip clickSound;
+    public AudioClip clickSound; // clip del audio cuando se presiona un boton
     private float lastVolume;
 
+    //Diferentes Paneles
     [Header("Panels")]
     public GameObject mainPanel;
     public GameObject optionsPanel;
@@ -24,10 +26,11 @@ public class MainPanel : MonoBehaviour{
         SceneManager.LoadScene(levelName);
     }
 
+    //Metodo para salir del juego cuando se presiona el boton salir
     public void ExitGame(){
         Application.Quit();
     }
-
+    // Metodo para mutear la musica 
     public void SetMute(){
         if(mute.isOn){
             mixer.GetFloat("volMaster", out lastVolume);
@@ -43,6 +46,7 @@ public class MainPanel : MonoBehaviour{
         volumeMaster.onValueChanged.AddListener(ChangeVolumeMaster);
     }
 
+    //Todos los paneles comienzan en falso, si se presiona algun boton se activa el panel
     public void OpenPanel(GameObject panel){
         mainPanel.SetActive(false);
         optionsPanel.SetActive(false);
@@ -51,13 +55,15 @@ public class MainPanel : MonoBehaviour{
         PlaySoundButton();
     }
 
+//Metodo para cambiar el volumen del maste
     public void ChangeVolumeMaster(float v){
         mixer.SetFloat("volMaster", v);
     }
+    //Metodo para cambiar el volumen del volume Fx
     public void ChangeVolumeFx(float v){
         mixer.SetFloat("volFx", v);
     }
-
+    //Metodo del sonido al clickear, lo reproduce al momento
     public void PlaySoundButton(){
         fxSource.PlayOneShot(clickSound);
     }
