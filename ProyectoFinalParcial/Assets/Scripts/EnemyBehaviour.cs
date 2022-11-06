@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class EnemyBehaviour : MonoBehaviour{
     private GameObject player;
@@ -9,10 +10,7 @@ public class EnemyBehaviour : MonoBehaviour{
     private NavMeshAgent agente;
     private Transform objetivo;
     private Animator animador;
-
-   
     public AudioSource controlSonido;
-    
     public AudioClip sonidoExplosion;
 
     void Start(){
@@ -23,11 +21,11 @@ public class EnemyBehaviour : MonoBehaviour{
     }
 
     void Update(){
-        agente.destination=objetivo.position;
         MoverEnemigo();
     }
 
     void MoverEnemigo(){
+        agente.destination=objetivo.position;
         RaycastHit hit;
         if(Physics.Raycast(transform.position,transform.forward,out hit,15) && hit.transform.tag=="Player"){
             animador.SetBool("Walk_Anim", false);
@@ -48,7 +46,10 @@ public class EnemyBehaviour : MonoBehaviour{
             AudioSource.PlayClipAtPoint(sonidoExplosion, gameObject.transform.position);
         }
         if(other.gameObject.CompareTag("Player")){
-            Destroy(player);
+            print("Perdiste :c");
+            Cursor.lockState=CursorLockMode.None;
+            Cursor.visible=true;
+            SceneManager.LoadScene(4);
         }
     }
 }

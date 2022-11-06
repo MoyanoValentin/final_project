@@ -23,6 +23,8 @@ public class NPC2Behaviour : MonoBehaviour{
                     break;
                 }
                 case 2:{
+                    Cursor.lockState=CursorLockMode.None;
+                    Cursor.visible=true;
                     SceneManager.LoadScene(3);
                     break;
                 }
