@@ -9,6 +9,8 @@ public class SalmonBehaviour : MonoBehaviour {
     public PlayerBehaviour playerBehaviour;
     public NPCBehaviour npcBehaviour;
     public NPC2Behaviour npc2Behaviour;
+    public AudioSource controlSonido;
+    public AudioClip sonidoSalmon;
 
     void Start(){
         player=GameObject.FindGameObjectWithTag("CollectedSalmon").GetComponent<Transform>();
@@ -41,5 +43,6 @@ public class SalmonBehaviour : MonoBehaviour {
         transform.position=player.position;
         transform.rotation=player.rotation;
         transform.localScale=player.localScale;
+        controlSonido.PlayOneShot(sonidoSalmon);
     }
 }

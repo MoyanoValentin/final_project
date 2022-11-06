@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 8900000, guid: 6777e4062f5b63947a6a5dd5b629127e, type: 3}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.04046634, g: 0.038820453, b: 0.040931515, a: 1}
+  m_IndirectSpecularColor: {r: 0.040497087, g: 0.038840722, b: 0.040977336, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6043,7 +6043,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2b0d2eab23d87f348bf73baa4f7128c5, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.01
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -6509,6 +6509,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2098458471384043137, guid: 8b36ab35f821f1040a5dfbed7d39fab5, type: 3}
+      propertyPath: m_Volume
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098458471384043137, guid: 8b36ab35f821f1040a5dfbed7d39fab5, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2291856509741759644, guid: 8b36ab35f821f1040a5dfbed7d39fab5, type: 3}
+      propertyPath: sonidoLaser
+      value: 
+      objectReference: {fileID: 8300000, guid: ee53035d3ad3ca64c981465453f8f562, type: 3}
+    - target: {fileID: 2291856509741759644, guid: 8b36ab35f821f1040a5dfbed7d39fab5, type: 3}
+      propertyPath: controlSonido
+      value: 
+      objectReference: {fileID: 1517272898}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b36ab35f821f1040a5dfbed7d39fab5, type: 3}
 --- !u!4 &1036314743 stripped
@@ -9170,6 +9186,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2291856509741759644, guid: 8b36ab35f821f1040a5dfbed7d39fab5, type: 3}
+      propertyPath: controlSonido
+      value: 
+      objectReference: {fileID: 1433398050}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b36ab35f821f1040a5dfbed7d39fab5, type: 3}
 --- !u!1001 &1373469714
@@ -9699,6 +9719,11 @@ PrefabInstance:
 --- !u!4 &1433398047 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1804959675930028216, guid: 8b36ab35f821f1040a5dfbed7d39fab5, type: 3}
+  m_PrefabInstance: {fileID: 1370003551}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1433398050 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2098458471384043137, guid: 8b36ab35f821f1040a5dfbed7d39fab5, type: 3}
   m_PrefabInstance: {fileID: 1370003551}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1435886870
@@ -10836,6 +10861,11 @@ Transform:
 --- !u!4 &1517272895 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1804959675930028216, guid: 8b36ab35f821f1040a5dfbed7d39fab5, type: 3}
+  m_PrefabInstance: {fileID: 1027525521}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1517272898 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2098458471384043137, guid: 8b36ab35f821f1040a5dfbed7d39fab5, type: 3}
   m_PrefabInstance: {fileID: 1027525521}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1524122307
