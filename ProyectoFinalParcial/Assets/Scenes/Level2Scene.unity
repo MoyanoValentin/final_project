@@ -6057,6 +6057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerBall: {fileID: 3527649879784322002, guid: 8d3ffc2114d41a74ba6c932d1696c2e6, type: 3}
+  otherPlayerBall: {fileID: 3527649879784322002, guid: 8d3ffc2114d41a74ba6c932d1696c2e6, type: 3}
   shotRate: 0.5
   controlSonido: {fileID: 1220100620}
   sonidoDisparo: {fileID: 8300000, guid: e35d28b8c02858548b7ba58c0e5cf0b6, type: 3}
