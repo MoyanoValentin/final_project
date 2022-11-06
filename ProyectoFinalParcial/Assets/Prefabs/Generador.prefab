@@ -1189,7 +1189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe484009168f1a4d846574de62035cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemigo: {fileID: 8060299989369480561, guid: 6c098dbf4e14b3b438af1768edef8e19, type: 3}
+  enemigo: {fileID: 2097108320244387982, guid: 6c098dbf4e14b3b438af1768edef8e19, type: 3}
   explosion: {fileID: 2271993404480270108, guid: 06bec213faf8f0c40897eb9f92a87daf, type: 3}
   tipoGenerador: 1
   sonidoExplosion: {fileID: 8300000, guid: ed1609776a60c8942b610996d4e2fac6, type: 3}

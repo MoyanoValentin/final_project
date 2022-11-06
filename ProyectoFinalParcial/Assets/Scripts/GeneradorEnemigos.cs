@@ -11,8 +11,7 @@ public class GeneradorEnemigos : MonoBehaviour{
     [SerializeField]
     private int tipoGenerador;
     private int cont=0;
-
-     public AudioClip sonidoExplosion;
+    public AudioClip sonidoExplosion;
 
     void Start(){
         switch(tipoGenerador){
@@ -28,26 +27,29 @@ public class GeneradorEnemigos : MonoBehaviour{
     }
 
     public void GenerarEnemigo(){
-        switch(tipoGenerador){
-           case 1:{
-            Instantiate(enemigo,transform.position,transform.rotation);
-            break;
-        }
-           case 2:{
-            if(cont<3){
-                Instantiate(enemigo,transform.position,transform.rotation);
-                cont++;
+        if(gameObject.activeSelf){
+            switch(tipoGenerador){
+                case 1:{
+                    Instantiate(enemigo,transform.position,transform.rotation);
+                    break;
+                }
+                case 2:{
+                    if(cont<3){
+                        Instantiate(enemigo,transform.position,transform.rotation);
+                        cont++;
+                    }
+                    break;
+                }
             }
-            break;
         }
     }
-}
+
     void OnTriggerStay(Collider other){
         if(other.gameObject.CompareTag("bala") || other.gameObject.CompareTag("NPCShield")){
+            gameObject.SetActive(false);
             Instantiate(explosion,transform.position,transform.rotation);
-            Destroy(gameObject);
             AudioSource.PlayClipAtPoint(sonidoExplosion, gameObject.transform.position);
         }
-      }
+    }
 }
 
