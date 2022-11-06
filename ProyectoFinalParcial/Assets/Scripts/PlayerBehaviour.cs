@@ -27,40 +27,29 @@ public class PlayerBehaviour : MonoBehaviour{
     }
 
     public void MoverGato(){
-        float moveX=Input.GetAxis("Horizontal");
-        float moveZ=Input.GetAxis("Vertical");
-        float rotateY=Input.GetAxis("Mouse X");
+        float moveX=Input.GetAxis("Horizontal"); //mueve hacia los lados con A y D
+        float moveZ=Input.GetAxis("Vertical"); //mueve hacia adelante y atrás con W y S
+        float rotateY=Input.GetAxis("Mouse X"); //mueve la cámara con el Eje Horzontal del Mouse
         Vector3 movement=new Vector3(moveX,0,moveZ).normalized;
-        switch(isLive){
-            case true:{
-                transform.Translate(movement*speed*Time.deltaTime);
-                transform.Rotate(new Vector3(0,rotateY,0)*rotationSpeed*Time.deltaTime);
-                AnimarGato();
-                break;
-            }
-            case false:{
-                Destroy(gameObject);
-                cat.SetBool("Walk",false);
-                break;
-            }
-        }
+        transform.Translate(movement*speed*Time.deltaTime);
+        transform.Rotate(new Vector3(0,rotateY,0)*rotationSpeed*Time.deltaTime);
+        AnimarGato();
     }
 
     public void SaltarGato(){
         Vector3 floor = transform.TransformDirection(Vector3.down);
-        if (Physics.Raycast(transform.position, floor, 1.08f)){
+        if (Physics.Raycast(transform.position, floor, 1.08f)){ //calcula la distancia al suelo con Raycast
             floorDetected = true;
         }else{
             floorDetected = false;
         }
-
-        //si se presiona la barra y el personaje esta en el suelo podra realizar el salto
+        //si se presiona Espacio y el personaje esta en el suelo podra realizar el salto
         if (Input.GetKeyDown(KeyCode.Space) && floorDetected == true){
             physiscsBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
 
-    public void AnimarGato(){
+    public void AnimarGato(){ //si detecta las teclas de movimiento, realizará la animación de caminar
         if(Input.GetAxis("Vertical")!=0 || Input.GetAxis("Horizontal")!=0){
             cat.SetBool("Walk",true);
         }else{

@@ -12,11 +12,11 @@ public class PlayAreaBehaviour : MonoBehaviour{
     }
 
     void Update(){
-        transform.Rotate(new Vector3(0,1,0)*rotationSpeed*Time.deltaTime);
+        transform.Rotate(new Vector3(0,1,0)*rotationSpeed*Time.deltaTime); //rota el objeto
     }
 
     void OnTriggerExit(Collider other){
-        if(other.gameObject.CompareTag("Player")){
+        if(other.gameObject.CompareTag("Player")){ //cuando el jugador sale de la colisión, termina el juego
             print("Perdiste :c");
             Cursor.lockState=CursorLockMode.None;
             Cursor.visible=true;

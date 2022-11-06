@@ -10,6 +10,7 @@ public class BallBehaviourScript : MonoBehaviour{
         transform.Translate(0, 0, speedZ *Time.deltaTime);     
     }
 
+    //Para que busque el Tag del enemigo y lo destruya
     private void OnTriggerStay(Collider other){
         if (other.gameObject.CompareTag("Enemy")){
             Destroy(gameObject);
