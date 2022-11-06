@@ -9,12 +9,11 @@ public class ScoreText : MonoBehaviour{
     private PlayerBehaviour player;
 
     public void Start(){
-        scoreText.GetComponent<TextMeshProUGUI>();
+        scoreText.GetComponent<TextMeshProUGUI>(); //obtiene el Texto del objeto
         player=GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBehaviour>();
     }
 
-    // Update is called once per frame
     public void Update(){
-        scoreText.text=player.hasSalmon.ToString()+"/10";
+        scoreText.text=player.hasSalmon.ToString()+"/10"; //actualiza la puntuación del Jugador
     }
 }

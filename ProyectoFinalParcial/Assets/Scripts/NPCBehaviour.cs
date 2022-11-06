@@ -15,14 +15,14 @@ public class NPCBehaviour : MonoBehaviour{
 
     void OnTriggerEnter(Collider other){
         isInNpc=true;
-        if(player.hasSalmon>=10){
+        if(player.hasSalmon>=10){ //al recibir 10 salmones, destruye la puerta
             Destroy(door);
         }
     }
 
     void OnTriggerExit(Collider other){
         isInNpc=false;
-        if(player.hasSalmon>=10){
+        if(player.hasSalmon>=10){ //al recibir 10 salmones desactiva su colisión
             player.hasSalmon=0;
             gameObject.GetComponent<BoxCollider>().enabled=false;
         }

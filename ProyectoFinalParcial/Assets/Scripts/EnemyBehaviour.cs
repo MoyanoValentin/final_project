@@ -16,7 +16,7 @@ public class EnemyBehaviour : MonoBehaviour{
     void Start(){
         player=GameObject.FindGameObjectWithTag("Player");
         objetivo=player.GetComponent<Transform>();
-        agente=GetComponent<NavMeshAgent>();
+        agente=GetComponent<NavMeshAgent>(); //obtiene los valores del NavMesh (Enemigo)
         animador=GetComponent<Animator>();
     }
 
@@ -25,9 +25,9 @@ public class EnemyBehaviour : MonoBehaviour{
     }
 
     void MoverEnemigo(){
-        agente.destination=objetivo.position;
-        RaycastHit hit;
-        if(Physics.Raycast(transform.position,transform.forward,out hit,15) && hit.transform.tag=="Player"){
+        agente.destination=objetivo.position; //dirige al enemigo hacia el jugador a través de NavMesh
+        RaycastHit hit; //crea una variable para almacenar la información de la colisión
+        if(Physics.Raycast(transform.position,transform.forward,out hit,15) && hit.transform.tag=="Player"){ //detecta si el rayo tocaa al jugador
             animador.SetBool("Walk_Anim", false);
             animador.SetBool("Roll_Anim", true);
         }else{
@@ -40,16 +40,16 @@ public class EnemyBehaviour : MonoBehaviour{
     }
 
     void OnTriggerEnter(Collider other){
-        if(other.gameObject.CompareTag("bala") || other.gameObject.CompareTag("NPCShield")){
+        if(other.gameObject.CompareTag("bala") || other.gameObject.CompareTag("NPCShield")){ //si entra en contacto con una bala o el campo de fuerza del NPC, se destruye
             Instantiate(explosion,transform.position,transform.rotation);
             Destroy(gameObject);
             AudioSource.PlayClipAtPoint(sonidoExplosion, gameObject.transform.position);
         }
-        if(other.gameObject.CompareTag("Player")){
+        if(other.gameObject.CompareTag("Player")){ //si toca al jugador, carga la pantalla de Fín del Juego
             print("Perdiste :c");
-            Cursor.lockState=CursorLockMode.None;
-            Cursor.visible=true;
-            SceneManager.LoadScene(4);
+            Cursor.lockState=CursorLockMode.None; //desbloquea la posición del cursor
+            Cursor.visible=true; //vuelve a mostrar el cursor
+            SceneManager.LoadScene(4); //carga escena de derrota
         }
     }
 }
