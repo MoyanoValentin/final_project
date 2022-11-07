@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class NPC2Behaviour : MonoBehaviour{
     public bool isInNpc=false;
-    [SerializeField]public int npcType;
+    [SerializeField] public int npcType;
     public PlayerBehaviour player;
     public SalmonBehaviour salmon;
 
@@ -15,14 +15,17 @@ public class NPC2Behaviour : MonoBehaviour{
     }
 
     void OnTriggerEnter(Collider other){
-        isInNpc=true;
+        isInNpc=true; //se activa cuando está dentro de l acolisión del NPC
         if(player.hasSalmon>=10){
+            //de acuerdo al Tipo del NPC, muestra el siguiente nivel o la pantalla de Victoria
             switch(npcType){
                 case 1:{
                     SceneManager.LoadScene(2);
                     break;
                 }
                 case 2:{
+                    Cursor.lockState=CursorLockMode.None;
+                    Cursor.visible=true;
                     SceneManager.LoadScene(3);
                     break;
                 }
@@ -31,8 +34,8 @@ public class NPC2Behaviour : MonoBehaviour{
     }
 
     void OnTriggerExit(Collider other){
-        isInNpc=false;
-        if(player.hasSalmon>=10){
+        isInNpc=false; //se desactiva cuando está fuera  de la colisión del NPC
+        if(player.hasSalmon>=10){ //desactiva la colisión al entregar 10 salmones
             gameObject.GetComponent<BoxCollider>().enabled=false;
         }
     }

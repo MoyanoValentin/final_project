@@ -5,89 +5,66 @@ using UnityEngine.Audio;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class MainPanel : MonoBehaviour
-{
+public class MainPanel : MonoBehaviour{
+    //Distintas opciones 
     [Header("Options")]
-
-    public Slider volumeFX;
+    public Slider volumeFX;// Slider del volumenFx en el menu
     public Slider volumeMaster;
     public Toggle mute;
-    public AudioMixer mixer;
+    public AudioMixer mixer; //
     public AudioSource fxSource;
-    public AudioClip clickSound;
+    public AudioClip clickSound; // clip del audio cuando se presiona un boton
     private float lastVolume;
 
+    //Diferentes Paneles
     [Header("Panels")]
-
     public GameObject mainPanel;
     public GameObject optionsPanel;
     public GameObject levelSelectPanel;
 
-
-    public void PlayLevel(string levelName)
-    {
+    public void PlayLevel(string levelName){
         SceneManager.LoadScene(levelName);
     }
 
-    public void ExitGame()
-    {
+    //Metodo para salir del juego cuando se presiona el boton salir
+    public void ExitGame(){
         Application.Quit();
     }
-
-    public void SetMute()
-    {
-       
-        if(mute.isOn)
-        {
+    // Metodo para mutear la musica 
+    public void SetMute(){
+        if(mute.isOn){
             mixer.GetFloat("volMaster", out lastVolume);
             mixer.SetFloat("volMaster", -80);
         }
-        else
-         mixer.SetFloat("volMaster", lastVolume);
-        
+        else{
+            mixer.SetFloat("volMaster", lastVolume);
+        }
     }
 
-   
-
-
-    public void Awake()
-    {
+    public void Awake(){
         volumeFX.onValueChanged.AddListener(ChangeVolumeFx);
         volumeMaster.onValueChanged.AddListener(ChangeVolumeMaster);
     }
 
-    public void OpenPanel(GameObject panel)
-    {
+    //Todos los paneles comienzan en falso, si se presiona algun boton se activa el panel
+    public void OpenPanel(GameObject panel){
         mainPanel.SetActive(false);
-
         optionsPanel.SetActive(false);
-
         levelSelectPanel.SetActive(false);
-
         panel.SetActive(true);
-
         PlaySoundButton();
-
     }
 
-    public void ChangeVolumeMaster(float v)
-    {
-
+//Metodo para cambiar el volumen del maste
+    public void ChangeVolumeMaster(float v){
         mixer.SetFloat("volMaster", v);
-
     }
-    public void ChangeVolumeFx(float v)
-    {
-
+    //Metodo para cambiar el volumen del volume Fx
+    public void ChangeVolumeFx(float v){
         mixer.SetFloat("volFx", v);
-
     }
-
-    public void PlaySoundButton()
-    {
-
+    //Metodo del sonido al clickear, lo reproduce al momento
+    public void PlaySoundButton(){
         fxSource.PlayOneShot(clickSound);
-
     }
-
 }

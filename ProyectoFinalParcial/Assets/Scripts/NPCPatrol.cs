@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NPCPatrol : MonoBehaviour{
     [SerializeField] GameObject npc;
-    [SerializeField] Transform[] puntosControl;
+    [SerializeField] GameObject[] puntosControl;
     [SerializeField] float velocidad = 5;
     [SerializeField] private GameObject npcModel;
     private Animator npcAnim;
@@ -13,30 +13,34 @@ public class NPCPatrol : MonoBehaviour{
 
     void Start(){
         npcAnim=npcModel.GetComponent<Animator>();
-        StartCoroutine("MueveNPC", "He llegado al punto de control");
+        StartCoroutine("MueveNPC", "He llegado al punto de control"); //inicia la Corrutina
     }
 
-    private void Update(){}
-
-    IEnumerator MueveNPC(string texto){
+    IEnumerator MueveNPC(string texto){ 
         int i = 0;
-        Vector3 nuevaPosicion = new Vector3(puntosControl[i].position.x, npc.transform.position.y, puntosControl[i].position.z);
+        Vector3 nuevaPosicion;
         while (true){
-            direction=puntosControl[i].transform.position-npc.transform.position;
-            generatorDirection=Quaternion.LookRotation(new Vector3(direction.x,0,direction.z));
-            npc.transform.rotation=generatorDirection;
-            while(puntosControl[i]){
+            while(puntosControl[i].activeSelf){ //detecta el estado de cada uno de los objetos del array usando la variable "i"
+                //crea nuevos valores para la Posición y Rotación
+                direction=puntosControl[i].transform.position-npc.transform.position;
+                nuevaPosicion = new Vector3(puntosControl[i].transform.position.x, npc.transform.position.y, puntosControl[i].transform.position.z);
                 npcAnim.SetBool("Walk",true);
+                //mueve y rota el NPC hacia el Generador
                 npc.transform.position = Vector3.MoveTowards(npc.transform.position, nuevaPosicion, velocidad * Time.deltaTime);
+                generatorDirection=Quaternion.LookRotation(new Vector3(direction.x,0,direction.z));
+                npc.transform.rotation=generatorDirection;
+                if(npc.transform.position==nuevaPosicion){ //desactiva el Generador al alcanzar su posición
+                    npcAnim.SetBool("Walk",false);
+                    puntosControl[i].SetActive(false);
+                }
                 yield return null;
             }
             Debug.Log(texto);
-            if (i <= 10) i++;
-            else{
-                npcAnim.SetBool("Walk",false);
-                i = 0;
+            if(i <= 11){ //limita el contador i a 11, para que tome los 12 objetos del Array
+                i++;
+            }else{
+                yield return false;
             }
-            nuevaPosicion = new Vector3(puntosControl[i].position.x, npc.transform.position.y, puntosControl[i].position.z);
         }
     }
 }

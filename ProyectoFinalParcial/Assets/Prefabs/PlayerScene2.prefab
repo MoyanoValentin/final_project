@@ -59,6 +59,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerScene2
       objectReference: {fileID: 0}
+    - target: {fileID: 461860651353183861, guid: 73ef17843463f4047bc22c8cb31ebc9f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 461860651543143308, guid: 73ef17843463f4047bc22c8cb31ebc9f, type: 3}
       propertyPath: m_LocalPosition.z
       value: -5
@@ -166,3 +170,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerBall: {fileID: 5539304430370505858, guid: d226be02a43e7a44f9a0a9ab72cf7489, type: 3}
   shotRate: 0.5
+  controlSonido: {fileID: 0}
+  sonidoDisparo: {fileID: 0}
